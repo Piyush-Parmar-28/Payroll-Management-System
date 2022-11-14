@@ -9,7 +9,7 @@ import Employees from './pages/Employees';
 import AddEmp from './pages/AddEmp';
 import AddDept from './pages/AddDept';
 import UpdateEmp from './pages/UpdateEmp';
-import DeleteEmp from './DeleteEmp';
+import DeleteEmp from './pages/DeleteEmp';
 
 const App = () => {
     return (
@@ -22,6 +22,7 @@ const App = () => {
                     <Route exact path= "/empList" element={<Employees/>} />
                     <Route exact path="/addEmp" element={<AddEmp/>} />
                     <Route exact path= "/addDept" element={<AddDept/>} />
+                    <Route exact path='/addEmp' element={<AddEmp />} />
                     <Route exact path='/updateEmp' element={<UpdateEmp />} />
                     <Route exact path="/deleteEmp" element= {<DeleteEmp/>} />
                 </Routes>

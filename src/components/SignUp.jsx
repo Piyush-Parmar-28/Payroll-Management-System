@@ -10,12 +10,14 @@ const SignUp = (props) => {
     
     function handleChange(event) {
         setSignUpDetails({ ...signUpDetails, [event.target.name]: event.target.value })
-        console.log(signUpDetails);
+        // console.log(signUpDetails);
     }
     
     const submitData = () => {
-        console.log("sendinng data");
-        Axios.post('http://localhost:5000/signup', {email: signUpDetails.email, password: signUpDetails.pass})
+        // console.log("sendinng data");
+        Axios.post('http://localhost:5000/signup', {
+            email: signUpDetails.email, password: signUpDetails.pass
+        })
     }
 
     return (

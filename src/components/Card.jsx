@@ -10,7 +10,7 @@ const Card = (props) => {
                     <h4>{props.cardDesc}</h4>
                     
                     <Link to={props.cardLink}>
-                        <a class="btn btn-outline-primary btn-sm" role="button" href="#">{props.cardBtn}</a>
+                        <p class="btn btn-outline-primary btn-sm" role="button" href="#">{props.cardBtn}</p>
                     </Link>
                 </div>
             </div>
