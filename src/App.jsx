@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Employees from './pages/Employees';
 import AddEmp from './pages/AddEmp';
 import AddDept from './pages/AddDept';
-import UpdateEmp from './pages/UpdateEmp';
+import EmpDetails from './pages/EmpDetails';
 import DeleteEmp from './pages/DeleteEmp';
 
 const App = () => {
@@ -22,8 +22,7 @@ const App = () => {
                     <Route exact path= "/empList" element={<Employees/>} />
                     <Route exact path="/addEmp" element={<AddEmp/>} />
                     <Route exact path= "/addDept" element={<AddDept/>} />
-                    <Route exact path='/addEmp' element={<AddEmp />} />
-                    <Route exact path='/updateEmp' element={<UpdateEmp />} />
+                    <Route exact path='/findEmp' element={<EmpDetails />} />
                     <Route exact path="/deleteEmp" element= {<DeleteEmp/>} />
                 </Routes>
             </BrowserRouter>

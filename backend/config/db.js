@@ -8,7 +8,7 @@ const db= mysql.createConnection({
     database: "payroll"
 })
 
-console.log("here1");
+// console.log("here1");
 
 db.connect((err) => {
     if (err) {

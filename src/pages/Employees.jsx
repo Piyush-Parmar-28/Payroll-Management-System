@@ -1,9 +1,21 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import axios from "axios"
 
 import Navbar from '../components/Navbar'
 import TableRow from '../components/TableRow'
 
 const Employees = () => {
+
+    const [empData, setEmpData] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/getAll").then(res => {
+            setEmpData(res.data);
+        })
+    }, [])
+
+    console.log("data: ", empData)
+
     return (
         <Fragment>
 
@@ -18,7 +30,7 @@ const Employees = () => {
                     </div>
 
                     <div class="card-body">
-                        <div class="row">
+                        {/* <div class="row">
                             <div class="col-md-6 text-nowrap">
                                 <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Show&nbsp;<select class="d-inline-block form-select form-select-sm">
                                     <option value="10" selected="">10</option>
@@ -33,7 +45,7 @@ const Employees = () => {
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">
@@ -48,132 +60,29 @@ const Employees = () => {
                                 </thead>
 
                                 <tbody>
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
 
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
-                                    <TableRow
-                                        imgSrc=""
-                                        empName="xyz"
-                                        position="Accountant"
-                                        office="Japan"
-                                        jDate="12/10/2022"
-                                        sal="25000"
-                                    ></TableRow>
-
+                                    {
+                                        empData.map(contents => {
+                                            if (contents === null) {
+                                                return (
+                                                    <p>Null</p>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <TableRow
+                                                        id={contents.id}
+                                                        imgSrc=""
+                                                        empName={contents.fname+ " "+ contents.lname}
+                                                        position="Accountant"
+                                                        email={contents.email}
+                                                        phone={contents.phone}
+                                                        sal={contents.salary}
+                                                    ></TableRow>
+                                                )
+                                            }
+                                        })
+                                    }
                                 </tbody>
 
                             </table>

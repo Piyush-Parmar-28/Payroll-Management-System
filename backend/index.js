@@ -7,12 +7,12 @@ const app= express()
 const port= 5000
 app.use(cors())
 app.use(express.json())
-require('./routes/Employee')
 
-// const addEmpRoute = require("./routes/Employee")
+const {addEmp} = require('./routes/Employee')
+const {getAll} = require("./routes/Employee")
+const {findEmp}= require("./routes/Employee")
 
 //  Creating Routes
-
 //  1. Home Route
 app.get("/", (req, res) =>{
     res.send("At Home")
@@ -40,23 +40,7 @@ app.post("/signup", (req, res) =>{
 })
 
 //  2. Add Employee
-// app.post("/addEmp", (req, res) =>{
-//     const id= req.body.id;
-//     const fname= req.body.fname;
-//     const lname= req.body.lname;
-//     const email= req.body.email;
-//     const phone= req.body.phone;
-//     const salary= req.body.salary;
-
-//     db.query("insert into employees (id, fname, lname, email, phone, salary) values (?, ?, ?, ?, ?, ?) ", [id, fname, lname, email, phone, salary], (err, res) =>{
-//         if (err) {
-//             console.log("Error occured in adding employee data: "+ err);
-//         }
-//         else{
-//             console.log("Employee data added successfully!");
-//         }
-//     })
-// })
+app.post('/addEmp',addEmp)
 
 //  3. Add Department
 app.post("/addDept", (req, res) =>{
@@ -75,6 +59,13 @@ app.post("/addDept", (req, res) =>{
         }
     })
 })
+
+//  4. Find Employee
+app.post("/findEmp", findEmp)
+
+//  5. Get all employees
+app.get("/getAll", getAll)
+
 
 app.listen(port, ()=>{
     console.log("Server is running on port: "+ port);

@@ -41,10 +41,10 @@ const Home = () => {
                     ></Card>
 
                     <Card
-                        cardName="Update Employee"
+                        cardName="Find Employee"
                         cardDesc="Lorem ipsum dolor sit amet"
-                        cardLink="/updateEmp"
-                        cardBtn="Update Employee"
+                        cardLink="/findEmp"
+                        cardBtn="Find Employee"
                     ></Card>
 
                     <Card
